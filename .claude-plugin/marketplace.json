@@ -1,0 +1,12 @@
+{
+  "name": "supercool",
+  "owner": { "name": "Famous Labs", "email": "support@famous.ai" },
+  "description": "Your SuperCool agent for coding agents: videos, websites, decks, research and images, delivered as files.",
+  "plugins": [
+    {
+      "name": "supercool",
+      "source": "./",
+      "description": "Hand creative work to your SuperCool agent from Claude Code and get the finished files."
+    }
+  ]
+}

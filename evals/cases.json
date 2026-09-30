@@ -1,0 +1,9 @@
+[
+  {"prompt": "Make me a 15 second vertical ad for my candle shop", "expect": ["supercool ask", "--wait", "--json"], "skills": ["supercool", "supercool-video"]},
+  {"prompt": "Build a landing page for my dog walking business", "expect": ["supercool ask", "--wait"], "skills": ["supercool", "supercool-website"]},
+  {"prompt": "Turn these notes into a 10 slide investor deck", "expect": ["supercool ask", "--file", "--wait"], "skills": ["supercool", "supercool-presentation"]},
+  {"prompt": "How's the video coming along?", "expect": ["supercool ask"], "skills": ["supercool"]},
+  {"prompt": "Stop the video", "expect": ["supercool ask", "stop"], "skills": ["supercool"]},
+  {"prompt": "The video timed out, get it", "expect": ["supercool wait"], "skills": ["supercool"]},
+  {"prompt": "Set up SuperCool", "expect": ["supercool login"], "skills": ["supercool"]}
+]
