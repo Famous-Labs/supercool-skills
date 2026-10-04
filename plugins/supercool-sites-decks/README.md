@@ -10,10 +10,10 @@ it, and sends back the live link or the file. Follow up to change anything
 
 ## What's inside
 
-- **An MCP connection** to SuperCool at `https://mcp.supercool.com/mcp`
-  (three tools: `message_agent`, `wait_for_updates`, `get_work`). It sends a
-  `X-SuperCool-Scope: design` header, so on this connection the agent only
-  makes websites, presentations, documents, research and design assets.
+- **An MCP connection** to SuperCool's design address,
+  `https://mcp.supercool.com/mcp/design` (three tools: `message_agent`,
+  `wait_for_updates`, `get_work`). On this address the agent only makes
+  websites, presentations, documents, research and design assets.
 - **Skills** that teach Claude how to brief the agent for each kind of work:
   `get-started`, `website`, `presentation`, `research-report`, `document`,
   `design-assets`.

@@ -1,7 +1,7 @@
 {
   "name": "supercool-sites-decks",
   "displayName": "SuperCool Sites & Decks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Your SuperCool agent builds and publishes websites and landing pages, designs presentations, writes research reports and documents, and makes design assets like logos, diagrams and UI mockups.",
   "author": {
     "name": "Famous Labs",
@@ -21,7 +21,7 @@
     "design"
   ],
   "icon": "./assets/logo.png",
-  "documentationUrl": "https://supercool.com/docs/api",
+  "documentationUrl": "https://supercool.com/plugins",
   "supportUrl": "https://supercool.com/faqs",
   "privacyPolicyUrl": "https://home.deal.ai/privacy-policy",
   "termsOfServiceUrl": "https://home.deal.ai/tos"

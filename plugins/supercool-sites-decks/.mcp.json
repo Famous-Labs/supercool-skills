@@ -2,7 +2,7 @@
   "mcpServers": {
     "supercool": {
       "type": "http",
-      "url": "https://mcp.supercool.com/mcp",
+      "url": "https://mcp.supercool.com/mcp/design",
       "headers": {
         "X-SuperCool-Scope": "design"
       }
