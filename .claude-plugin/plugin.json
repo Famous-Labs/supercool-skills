@@ -1,11 +1,21 @@
 {
   "name": "supercool",
   "displayName": "SuperCool",
-  "version": "1.0.0",
-  "description": "Hand creative work (videos, websites, presentations, research, images) to your SuperCool agent and get the finished files on disk.",
-  "author": { "name": "Famous Labs", "email": "support@famous.ai" },
+  "version": "1.1.0",
+  "description": "Hand creative work (videos, websites, presentations, research, images) to your SuperCool agent, through its MCP connection or the SuperCool CLI, and get the finished work back.",
+  "author": {
+    "name": "Famous Labs",
+    "email": "support@famous.ai"
+  },
   "homepage": "https://supercool.com/cli",
   "repository": "https://github.com/Famous-Labs/supercool-skills",
   "license": "MIT",
-  "keywords": ["supercool", "video", "website", "presentation", "research", "images"]
+  "keywords": [
+    "supercool",
+    "video",
+    "website",
+    "presentation",
+    "research",
+    "images"
+  ]
 }

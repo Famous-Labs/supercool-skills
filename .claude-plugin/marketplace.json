@@ -1,12 +1,20 @@
 {
   "name": "supercool",
-  "owner": { "name": "Famous Labs", "email": "support@famous.ai" },
-  "description": "Your SuperCool agent for coding agents: videos, websites, decks, research and images, delivered as files.",
+  "owner": {
+    "name": "Famous Labs",
+    "email": "support@famous.ai"
+  },
+  "description": "Your SuperCool agent for Claude: videos, websites, decks, research and images.",
   "plugins": [
     {
       "name": "supercool",
       "source": "./",
       "description": "Hand creative work to your SuperCool agent from Claude Code and get the finished files."
+    },
+    {
+      "name": "supercool-sites-decks",
+      "source": "./plugins/supercool-sites-decks",
+      "description": "SuperCool for websites, presentations, documents, research and design assets."
     }
   ]
 }

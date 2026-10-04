@@ -1,6 +1,6 @@
 ---
 name: supercool
-description: Hand creative or research work to the user's SuperCool agent with the `supercool` CLI and bring back the finished files. Use when the user asks for a video, ad, explainer, website or landing page, presentation or deck, research report, images, music or voiceover, or mentions SuperCool. Also for "check on", "stop" or "change" work SuperCool is doing.
+description: Hand creative or research work to the user's SuperCool agent, through its MCP tools (message_agent, wait_for_updates, get_work) or the `supercool` CLI, and bring back the finished work. Use when the user asks for a video, ad, explainer, website or landing page, presentation or deck, research report, images, music or voiceover, or mentions SuperCool. Also for "check on", "stop" or "change" work SuperCool is doing.
 ---
 
 # SuperCool
@@ -11,7 +11,33 @@ calls, texts, the web app and here. The `supercool` CLI sends it a message and
 saves what it makes to disk. Everything is a message to the agent, exactly as
 the user would text it.
 
-## Before the first request
+## Which way to reach the agent
+
+1. **SuperCool's MCP tools are available** (`message_agent`, `wait_for_updates`,
+   `get_work`): use them, as in "Through the MCP tools" below. Don't install or
+   ask about the CLI.
+2. **This plugin is installed but those tools aren't available yet:** SuperCool
+   isn't signed in. Ask the user to run `/mcp`, select **supercool** and choose
+   **Authenticate** (it opens their browser), then continue with the tools.
+   Don't fall back to the CLI for this.
+3. **No SuperCool MCP connection at all** (another agent, CI, or the user wants
+   files saved to disk): use the CLI, as in "With the CLI" below.
+
+## Through the MCP tools
+
+1. `message_agent` with the full brief, and files as public https URLs. Send a
+   fresh `request_id` per new message; reuse one only to retry that message.
+2. If it started work, call `wait_for_updates` with the returned cursor until
+   `done` is true (call again right away when `more` is true). Long jobs
+   (videos) can take many minutes; that's normal.
+3. Report the finished files and links it returns, and the agent's reply,
+   briefly. To show a result again, `get_work` with its `work_id`.
+4. Follow-ups, status and "stop that" are more `message_agent` calls in the
+   same conversation.
+
+## With the CLI
+
+### Before the first CLI request
 
 1. Check the CLI: `supercool version`. If missing, tell the user to install it
    (`npm i -g @famous-labs/supercool-cli`, or `brew install famous-labs/tap/supercool`).
@@ -20,7 +46,7 @@ the user would text it.
    wait for them to confirm. Never try to sign in for them. In CI, the user sets
    `SUPERCOOL_TOKEN`.
 
-## Ask for work
+### Ask for work
 
 Write the message the way a great brief reads: what it's for, audience, length,
 format, style, any must-haves, and the files to use. One message, in full.
@@ -48,7 +74,7 @@ The JSON result:
 }
 ```
 
-## Exit codes (act on them)
+### Exit codes (act on them)
 
 | Code | Meaning | What to do |
 |---|---|---|
@@ -63,7 +89,7 @@ The JSON result:
 | 9 | ran past the server's watch window | `supercool wait <request_id> --json` recovers it (never resends) |
 | 10 | no outcome found after recovery | tell the user to open the chat: `supercool work open <work_id>` |
 
-## Follow-ups, status, stopping
+### Follow-ups, status, stopping
 
 These are just messages to the agent, in the same conversation:
 
@@ -79,8 +105,8 @@ Other commands: `supercool work list --json`, `supercool work get <work_id> --do
 
 ## Rules
 
-- Never paste the user's secrets into a message. Attach files with `--file`.
-- Don't rerun an `ask` to "retry" a long job: use `supercool wait <request_id>`;
-  a new `ask` starts new (billed) work.
+- Never paste the user's secrets into a message. Attach files as https URLs (MCP) or with `--file` (CLI).
+- Don't resend a message to "retry" a long job: keep calling `wait_for_updates`
+  (MCP) or use `supercool wait <request_id>` (CLI); a new message starts new (billed) work.
 - Report what was saved (paths) and what the agent said, briefly. Don't narrate internals.
 - Work bills the user's SuperCool credits like any chat.

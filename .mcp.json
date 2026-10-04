@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "supercool": {
+      "type": "http",
+      "url": "https://mcp.supercool.com/mcp"
+    }
+  }
+}

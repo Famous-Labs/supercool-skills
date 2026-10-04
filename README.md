@@ -38,6 +38,23 @@ In Claude Code:
 /plugin install supercool@supercool
 ```
 
+The Claude Code plugin also connects SuperCool's MCP server
+(`https://mcp.supercool.com/mcp`), so it works without the CLI: Claude talks
+to your agent through `message_agent`, `wait_for_updates` and `get_work`, and
+you sign in once: run `/mcp`, select **supercool** and choose **Authenticate**
+(it opens SuperCool in your browser).
+
+### SuperCool Sites & Decks
+
+A second plugin in this marketplace, for websites, presentations, documents,
+research and design assets only (no image, video or audio generation):
+
+```
+/plugin install supercool-sites-decks@supercool
+```
+
+See [plugins/supercool-sites-decks](plugins/supercool-sites-decks).
+
 Agent-driven install: paste [INSTALL_FOR_AGENTS.md](INSTALL_FOR_AGENTS.md) into your agent.
 
 ## Try it
